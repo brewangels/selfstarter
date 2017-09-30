@@ -10,6 +10,6 @@ require 'factory_girl'
 
 c = FactoryGirl.create(:campaign)
 FactoryGirl.create(:beer, campaign: c)
-FactoryGirl.create(:cheer, description: "ashf ahsdkljfa ljksdhf kljahsdklfa kljsdhf fasjhd ksjahf", campaign: c, value_cents: 5000)
-FactoryGirl.create(:cheer, description: "ashf ahsdkljfa ljksdhf kljahsdklfa kljsdhf fasjhd ksjahf", campaign: c, value_cents: 10000)
-FactoryGirl.create(:cheer, description: "ashf ahsdkljfa ljksdhf kljahsdklfa kljsdhf fasjhd ksjahf", campaign: c, value_cents: 20000)
+FactoryGirl.create(:cheer, title: "Thank you!", description: "ashf ahsdkljfa ljksdhf kljahsdklfa kljsdhf fasjhd ksjahf", campaign: c, value_cents: 5000, value_currency: "EUR")
+FactoryGirl.create(:cheer, title: "You love beer!", description: "ashf ahsdkljfa ljksdhf kljahsdklfa kljsdhf fasjhd ksjahf", campaign: c, value_cents: 10000, value_currency: "EUR")
+FactoryGirl.create(:cheer, title: "Beer master!", description: "ashf ahsdkljfa ljksdhf kljahsdklfa kljsdhf fasjhd ksjahf", campaign: c, value_cents: 20000, value_currency: "EUR")

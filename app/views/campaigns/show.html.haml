@@ -58,6 +58,6 @@
   %ul#other_points.wrapper.clearfix
     - @campaign.cheers.each_with_index do |cheer, i|
       %li{id: "section-#{i + 1}"}
-        %h4 Section #{i + 1}
+        %h4= cheer.title
         %b= humanized_money_with_symbol(cheer.value)
         %p= cheer.description
