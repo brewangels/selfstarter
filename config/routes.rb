@@ -2,6 +2,7 @@ Selfstarter::Application.routes.draw do
   root :to => 'campaigns#index'
 
   resources :campaigns
+  resources :feedbacks
 
   match '/preorder'               => 'preorder#index', :via => [:get,:post]
   get 'preorder/checkout'
