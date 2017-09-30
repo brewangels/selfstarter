@@ -8,4 +8,5 @@
 
 require 'factory_girl'
 
-FactoryGirl.create(:campaign)
+c = FactoryGirl.create(:campaign)
+FactoryGirl.create(:beer, campaign: c)

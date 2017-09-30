@@ -45,8 +45,13 @@
         .block
           %p Our sponsors
 
-= render 'preorder/homepage/key_points'
+- @campaign.beers.each do |beer|
+  .big_wrapper
+    #one.wrapper
+      .point_copy
+        %h3= beer.name
+        %p= beer.description
+
 = render 'preorder/homepage/other_points'
-= render 'preorder/homepage/middle_reserve'
 = render 'preorder/homepage/faqs'
 = render 'preorder/homepage/press'
