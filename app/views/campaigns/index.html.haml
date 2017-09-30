@@ -1,6 +1,6 @@
 - @campaigns.each do |campaign|
   %section.container
-    %h2= campaign.name
+    = link_to campaign.name, campaign_path(campaign)
     .content
       %p= campaign.brewery.name
       %p= campaign.short_description
