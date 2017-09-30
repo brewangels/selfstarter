@@ -22,7 +22,7 @@
         %li.stats
           = number_to_currency Order.revenue, :precision => 0
           %span
-            of #{humanized_money_with_symbol @campaign.goal}
+            of #{humanized_money_with_symbol(@campaign.goal)}
         %li#days.stats
           = distance_of_time_in_words_to_now(@campaign.deadline).gsub(/\D/, "")
           %span
@@ -53,16 +53,11 @@
         %p= beer.description
 
 .gray_background
+  .wrapper.center
+    %h3 Cheer with us
   %ul#other_points.wrapper.clearfix
-    %li#section-1
-      %h4 Section 1
-      %p Morbi tempus dapibus egestas. Nullam accumsan dolor ut purus ornare congue. Phasellus ac commodo neque. Quisque non ligula lacus, id hendrerit eros.
-    %li#section-2
-      %h4 Section 2
-      %p Vivamus nec posuere mauris. Suspendisse mi sem, egestas ac tristique ac, varius ac lectus. Sed porttitor dolor adipiscing mauris sagittis.
-    %li#section-3
-      %h4 Section 3
-      %p Curabitur dolor elit, placerat et malesuada et, tristique vel nulla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-    %li#section-4
-      %h4 Section 4
-      %p Curabitur ac mi elit, nec tempor odio. Nam sollicitudin, sapien sit amet elementum pretium, turpis mi fermentum nisl, ac vehicula purus lacus non velit.
+    - @campaign.cheers.each_with_index do |cheer, i|
+      %li{id: "section-#{i + 1}"}
+        %h4 Section #{i + 1}
+        %b= humanized_money_with_symbol(cheer.value)
+        %p= cheer.description
