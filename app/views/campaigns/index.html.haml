@@ -1,0 +1,7 @@
+- @campaigns.each do |campaign|
+  %section.container
+    %h2= campaign.name
+    .content
+      %p= campaign.brewery.name
+      %p= campaign.short_description
+      %p= campaign.deadline

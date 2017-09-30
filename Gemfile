@@ -6,11 +6,8 @@ gem 'rails', '4.0.0'
 gem 'json', '~> 1.7.7'
 gem 'pg'
 gem 'puma'
-
-group :development do
-  #gem 'sqlite3'
-  gem 'pry-rails'
-end
+gem 'money-rails'
+gem 'haml-rails'
 
 group :production do
   gem 'pg'
@@ -27,6 +24,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'shoulda'
+  gem 'pry-rails'
 end
 
 # jQuery

@@ -11,7 +11,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130107010733) do
+ActiveRecord::Schema.define(version: 20170930174631) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "beers", force: true do |t|
+    t.string   "name"
+    t.string   "untappd_id"
+    t.string   "type"
+    t.text     "description"
+    t.integer  "brewery_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "breweries", force: true do |t|
+    t.string   "name"
+    t.string   "short_description"
+    t.string   "untappd_id"
+    t.float    "rating"
+    t.string   "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "campaigns", force: true do |t|
+    t.string   "name"
+    t.string   "city"
+    t.string   "type"
+    t.string   "short_description"
+    t.text     "long_description"
+    t.datetime "deadline"
+    t.integer  "goal_cents",        default: 0,     null: false
+    t.string   "goal_currency",     default: "USD", null: false
+    t.integer  "brewery_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feedbacks", force: true do |t|
+    t.integer "beer_id"
+    t.text    "q1"
+    t.text    "q2"
+    t.text    "q3"
+    t.text    "q4"
+    t.text    "q5"
+    t.text    "q6"
+    t.text    "q7"
+    t.text    "q8"
+    t.text    "q9"
+    t.text    "final"
+  end
 
   create_table "orders", id: false, force: true do |t|
     t.string   "token"
