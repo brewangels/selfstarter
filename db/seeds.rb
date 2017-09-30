@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 require 'factory_girl'
 
-FactoryGirl.create(:campaign)
+c = FactoryGirl.create(:campaign)
+FactoryGirl.create(:beer, campaign: c)

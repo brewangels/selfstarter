@@ -1,0 +1,68 @@
+.gray_background
+  .wrapper.center
+    %h2= @campaign.name
+  .wrapper.clearfix
+    #video
+      - if Settings.use_video_placeholder
+        #video_image
+          %img{:alt => "video_place_holder", :height => "385px", :src => "/assets/video_placeholder.png", :width => "512px"}/
+        #player.hidden{:style => "display: none;"}
+          %object{:height => "385", :width => "512"}
+            %param{:name => "movie", :value => "#{Settings.video_embed_url}?autohide=1=0=0=1"}/
+            %param{:name => "allowFullScreen", :value => "true"}/
+            %param{:name => "allowscriptaccess", :value => "always"}/
+            %embed{:allowfullscreen => "true", :allowscriptaccess => "always", :height => "385", :src => "#{Settings.video_embed_url}?autohide=1=0=0=1", :type => "application/x-shockwave-flash", :width => "512"}
+      - else
+        %iframe{:height => "385", :src => video_url, :width => "512"}
+    #backing
+      %ul
+        %li#backers.stats
+          = number_with_delimiter Order.backers, :delimiter => ","
+          %span= Settings.primary_stat
+        %li.stats
+          = number_to_currency Order.revenue, :precision => 0
+          %span
+            of #{humanized_money_with_symbol @campaign.goal}
+        %li#days.stats
+          = distance_of_time_in_words_to_now(@campaign.deadline).gsub(/\D/, "")
+          %span
+            = distance_of_time_in_words_to_now(Settings.expiration_date).gsub(/\d/, "").gsub("about", "")
+            left
+      - if Order.revenue.to_f < Order.goal.to_f
+        #progress_bg.small
+          #progress{:style => "width: #{Order.percent}%;"}
+      - else
+        #progress_bg
+          #progress
+          #progress_text
+            = Order.percent
+            \% #{Settings.progress_text}
+      .campaign_summary
+        .block
+          %p= @campaign.brewery.name
+          %p= @campaign.brewery.rating
+          %p= @campaign.brewery.short_description
+        .block
+          %p Our sponsors
+
+- @campaign.beers.each do |beer|
+  .big_wrapper
+    #one.wrapper
+      .point_copy
+        %h3= beer.name
+        %p= beer.description
+
+.gray_background
+  %ul#other_points.wrapper.clearfix
+    %li#section-1
+      %h4 Section 1
+      %p Morbi tempus dapibus egestas. Nullam accumsan dolor ut purus ornare congue. Phasellus ac commodo neque. Quisque non ligula lacus, id hendrerit eros.
+    %li#section-2
+      %h4 Section 2
+      %p Vivamus nec posuere mauris. Suspendisse mi sem, egestas ac tristique ac, varius ac lectus. Sed porttitor dolor adipiscing mauris sagittis.
+    %li#section-3
+      %h4 Section 3
+      %p Curabitur dolor elit, placerat et malesuada et, tristique vel nulla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+    %li#section-4
+      %h4 Section 4
+      %p Curabitur ac mi elit, nec tempor odio. Nam sollicitudin, sapien sit amet elementum pretium, turpis mi fermentum nisl, ac vehicula purus lacus non velit.
