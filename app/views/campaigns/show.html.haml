@@ -51,10 +51,9 @@
 #cheer-with-us.gray_background
   .wrapper.center
     %h3 Cheer with us
-  %ul#other_points.wrapper.clearfix
+  %ul.wrapper.clearfix
     - @campaign.cheers.each_with_index do |cheer, i|
       = link_to new_campaign_cheer_cheer_order_path(@campaign, cheer) do
         %li{id: "section-#{i + 1}"}
-          %h4= cheer.title
-          %b= humanized_money_with_symbol(cheer.value)
+          %b= "#{cheer.title} - #{humanized_money_with_symbol(cheer.value)}"
           %p= cheer.description

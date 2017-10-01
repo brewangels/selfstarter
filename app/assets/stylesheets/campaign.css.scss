@@ -38,5 +38,22 @@
   a, a:hover {
     text-decoration: none;
     color: #323232;
+    text-align: center;
+
+    li {
+      margin:10px 0;
+      padding:10px;
+
+      p {
+        font-size:80%;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  a:hover li {
+    border: 2px solid black;
+    margin: 8px 0;
+    padding: 10px 8px;
   }
 }
