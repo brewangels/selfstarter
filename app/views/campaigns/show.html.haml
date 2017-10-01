@@ -46,3 +46,6 @@
         %li
           %b= "#{cheer.title} - #{humanized_money_with_symbol(cheer.value)}"
           %p= cheer.description
+#feedback
+  .center
+    = link_to "Leave your feedback", new_feedback_path, class: "btn btn-info"
