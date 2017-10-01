@@ -6,6 +6,6 @@
           %span=campaign.name
           = image_tag(campaign.image)
         .description
-          %p.brewery= campaign.brewery.name.upcase
+          %p.brewery= campaign.brewery.name
           -#%p= campaign.short_description
           %p.deadline="⏱ " + distance_of_time_in_words_to_now(campaign.deadline) + " left"
