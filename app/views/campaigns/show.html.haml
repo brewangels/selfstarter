@@ -38,21 +38,17 @@
             = Order.percent
             \% #{Settings.progress_text}
       .campaign_summary
-        .block
-          %p= @campaign.brewery.name
-          %p= @campaign.brewery.rating
-          %p= @campaign.brewery.short_description
-        .block
-          %p Our sponsors
+        %h5= @campaign.brewery.name.upcase
+        %p= "#{@campaign.brewery.rating} ⭐️"
+        %p= @campaign.brewery.short_description
 
 - @campaign.beers.each do |beer|
   .big_wrapper
-    #one.wrapper
-      .point_copy
-        %h3= beer.name
-        %p= beer.description
+    .wrapper
+      %h5= "🍺 #{beer.name}"
+      %p Super fancy beer, you'll like it for sure!!!
 
-.gray_background
+#cheer-with-us.gray_background
   .wrapper.center
     %h3 Cheer with us
   %ul#other_points.wrapper.clearfix
