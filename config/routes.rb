@@ -1,7 +1,12 @@
 Selfstarter::Application.routes.draw do
   root :to => 'campaigns#index'
 
-  resources :campaigns
+  resources :campaigns do
+    resources :cheers do
+      resources :orders, only: %i(new post)
+    end
+  end
+
   resources :feedbacks
 
   match '/preorder'               => 'preorder#index', :via => [:get,:post]
