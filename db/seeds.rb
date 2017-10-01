@@ -11,14 +11,14 @@ User.create!
 brlo = Brewery.create(
   name: "BRLO",
   location:  "Berlin",
-  short_description: Forgery::LoremIpsum.sentence,
+  short_description: "We are experimenting with new flavors on Berliner Weisse. We want to keep the base flavor intact but giving it a twist on other things. Want to find out ?",
   untappd_id: "165817",
   rating: 3.46
 )
 schneeeule = Brewery.create(
   name: "Schneeeule",
   location:  "Berlin",
-  short_description: Forgery::LoremIpsum.sentence,
+  short_description: "I've come up with a magical yeast that will make this beer fantastic. Come and join to try my new creation",
   untappd_id: "165817",
   rating: 3.52
 )
