@@ -1,35 +1,11 @@
 %div{:id => "campaigns", :class => "gray_background"}
   %div{:class => "clearfix" }
-    - campaign = @campaigns.first
-    .campaign
-      = link_to campaign_path(campaign) do
-        =campaign.name
-        %img{:src => "/assets/campaign.jpg"}
-      .description
-        %p= campaign.brewery.name.upcase
-        %p= campaign.short_description
-        %p= campaign.deadline.strftime("%d-%m-%Y %H:%M")
-    .campaign
-      = link_to campaign_path(campaign) do
-        =campaign.name
-        %img{:src => "/assets/campaign.jpg"}
-      .description
-        %p= campaign.brewery.name.upcase
-        %p= campaign.short_description
-        %p= campaign.deadline.strftime("%d-%m-%Y %H:%M")
-    .campaign
-      = link_to campaign_path(campaign) do
-        =campaign.name
-        %img{:src => "/assets/campaign.jpg"}
-      .description
-        %p= campaign.brewery.name.upcase
-        %p= campaign.short_description
-        %p= campaign.deadline.strftime("%d-%m-%Y %H:%M")
-    .campaign
-      = link_to campaign_path(campaign) do
-        =campaign.name
-        %img{:src => "/assets/campaign.jpg"}
-      .description
-        %p= campaign.brewery.name.upcase
-        %p= campaign.short_description
-        %p= campaign.deadline.strftime("%d-%m-%Y %H:%M")
+    - @campaigns.each do |campaign|
+      .campaign
+        = link_to campaign_path(campaign) do
+          =campaign.name
+          %img{:src => "/assets/campaign.jpg"}
+        .description
+          %p= campaign.brewery.name.upcase
+          %p= campaign.short_description
+          %p= distance_of_time_in_words_to_now(campaign.deadline) + " left"

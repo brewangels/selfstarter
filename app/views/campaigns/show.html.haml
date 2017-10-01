@@ -26,7 +26,7 @@
         %li#days.stats
           = distance_of_time_in_words_to_now(@campaign.deadline).gsub(/\D/, "")
           %span
-            = distance_of_time_in_words_to_now(Settings.expiration_date).gsub(/\d/, "").gsub("about", "")
+            = distance_of_time_in_words_to_now(@campaign.deadline).gsub(/\d/, "").gsub("about", "")
             left
       - if @campaign.pledged_amount < @campaign.goal
         #progress_bg.small
