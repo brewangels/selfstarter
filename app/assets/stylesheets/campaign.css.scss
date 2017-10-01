@@ -4,7 +4,7 @@
 
   .campaign {
     float: left;
-    width: 250px;
+    width: 280px;
     margin: 10px 30px;
     font-size: 16px;
 
@@ -41,12 +41,18 @@
   }
 }
 
+.campaign_cover {
+  max-width: 400px
+}
+
 .campaign_summary {
-  width: 100%;
   text-align: left;
 }
 
 #cheer-with-us {
+  ul {
+    padding-left: 0;
+  }
   a, a:hover {
     text-decoration: none;
     color: #323232;
@@ -75,3 +81,7 @@
     padding: 10px 8px;
   }
 }
+
+//#backing .row {
+  //margin-left: 30px;
+//}

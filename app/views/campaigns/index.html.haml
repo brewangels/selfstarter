@@ -1,11 +1,10 @@
-%div{:id => "campaigns", :class => "gray_background"}
-  %div{:class => "clearfix" }
-    - @campaigns.each do |campaign|
-      .campaign
-        = link_to campaign_path(campaign) do
-          %span=campaign.name
-          = image_tag(campaign.image)
-        .description
-          %p.brewery= campaign.brewery.name
-          -#%p= campaign.short_description
-          %p.deadline="⏱ " + distance_of_time_in_words_to_now(campaign.deadline) + " left"
+%div{:id => "campaigns", :class => "row"}
+  - @campaigns.each do |campaign|
+    .campaign.col-sm-4
+      = link_to campaign_path(campaign) do
+        %span=campaign.name
+        = image_tag(campaign.image)
+      .description
+        %p.brewery= campaign.brewery.name
+        -#%p= campaign.short_description
+        %p.deadline="⏱ " + distance_of_time_in_words_to_now(campaign.deadline) + " left"

@@ -1,34 +1,22 @@
-.gray_background
-  .wrapper.center
-    %h2= @campaign.name
-  .wrapper.clearfix
-    #video
-      - if Settings.use_video_placeholder
-        #video_image
-          = image_tag(@campaign.image, :alt => "video_place_holder", :height => "385px", :width => "512px")
-          %img{}/
-        #player.hidden{:style => "display: none;"}
-          %object{:height => "385", :width => "512"}
-            %param{:name => "movie", :value => "#{Settings.video_embed_url}?autohide=1=0=0=1"}/
-            %param{:name => "allowFullScreen", :value => "true"}/
-            %param{:name => "allowscriptaccess", :value => "always"}/
-            %embed{:allowfullscreen => "true", :allowscriptaccess => "always", :height => "385", :src => "#{Settings.video_embed_url}?autohide=1=0=0=1", :type => "application/x-shockwave-flash", :width => "512"}
-      - else
-        %iframe{:height => "385", :src => video_url, :width => "512"}
-    #backing
-      %ul
-        %li#backers.stats
-          = number_with_delimiter Order.backers, :delimiter => ","
-          %span= Settings.primary_stat
-        %li.stats
-          = humanized_money_with_symbol(@campaign.pledged_amount)
-          %span
-            of #{humanized_money_with_symbol(@campaign.goal)}
-        %li#days.stats
-          = distance_of_time_in_words_to_now(@campaign.deadline).gsub(/\D/, "")
-          %span
-            = distance_of_time_in_words_to_now(@campaign.deadline).gsub(/\d/, "").gsub("about", "")
-            left
+.center
+  %h2= @campaign.name
+.wrapper.clearfix.row
+  = image_tag(@campaign.image, class: "campaign_cover col-sm-6 img-responsive")
+  #backing.col-sm-6
+    .row
+      #backers.stats.col
+        = number_with_delimiter Order.backers, :delimiter => ","
+        %span= Settings.primary_stat
+      .stats.col
+        = humanized_money_with_symbol(@campaign.pledged_amount)
+        %span
+          of #{humanized_money_with_symbol(@campaign.goal)}
+      #days.stats.col
+        = distance_of_time_in_words_to_now(@campaign.deadline).gsub(/\D/, "")
+        %span
+          = distance_of_time_in_words_to_now(@campaign.deadline).gsub(/\d/, "").gsub("about", "")
+          left
+    .row
       - if @campaign.pledged_amount < @campaign.goal
         #progress_bg.small
           #progress{:style => "width: #{@campaign.pledged_percentage}%;"}
@@ -38,10 +26,10 @@
           #progress_text
             = @campaign.pledged_percentage
             \% Funded
-      .campaign_summary
-        %h5= @campaign.brewery.name.upcase
-        %p= "#{@campaign.brewery.rating} ⭐️"
-        %p= @campaign.brewery.short_description
+    .campaign_summary.row
+      %h5= @campaign.brewery.name.upcase
+      %p= "#{@campaign.brewery.rating} ⭐️"
+      %p= @campaign.brewery.short_description
 
 - @campaign.beers.each do |beer|
   .big_wrapper
@@ -49,12 +37,12 @@
       %h5= "🍺 #{beer.name}"
       %p Super fancy beer, you'll like it for sure!!!
 
-#cheer-with-us.gray_background
-  .wrapper.center
+#cheer-with-us
+  .center
     %h3 Cheer with us
-  %ul.wrapper.clearfix
+  %ul
     - @campaign.cheers.each_with_index do |cheer, i|
       = link_to new_campaign_cheer_cheer_order_path(@campaign, cheer) do
-        %li{id: "section-#{i + 1}"}
+        %li
           %b= "#{cheer.title} - #{humanized_money_with_symbol(cheer.value)}"
           %p= cheer.description
