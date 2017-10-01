@@ -1,7 +1,35 @@
-- @campaigns.each do |campaign|
-  %section.container
-    = link_to campaign.name, campaign_path(campaign)
-    .content
-      %p= campaign.brewery.name
-      %p= campaign.short_description
-      %p= campaign.deadline
+%div{:id => "campaigns", :class => "gray_background"}
+  %div{:class => "clearfix" }
+    - campaign = @campaigns.first
+    .campaign
+      = link_to campaign_path(campaign) do
+        =campaign.name
+        %img{:src => "/assets/campaign.jpg"}
+      .description
+        %p= campaign.brewery.name.upcase
+        %p= campaign.short_description
+        %p= campaign.deadline.strftime("%d-%m-%Y %H:%M")
+    .campaign
+      = link_to campaign_path(campaign) do
+        =campaign.name
+        %img{:src => "/assets/campaign.jpg"}
+      .description
+        %p= campaign.brewery.name.upcase
+        %p= campaign.short_description
+        %p= campaign.deadline.strftime("%d-%m-%Y %H:%M")
+    .campaign
+      = link_to campaign_path(campaign) do
+        =campaign.name
+        %img{:src => "/assets/campaign.jpg"}
+      .description
+        %p= campaign.brewery.name.upcase
+        %p= campaign.short_description
+        %p= campaign.deadline.strftime("%d-%m-%Y %H:%M")
+    .campaign
+      = link_to campaign_path(campaign) do
+        =campaign.name
+        %img{:src => "/assets/campaign.jpg"}
+      .description
+        %p= campaign.brewery.name.upcase
+        %p= campaign.short_description
+        %p= campaign.deadline.strftime("%d-%m-%Y %H:%M")
