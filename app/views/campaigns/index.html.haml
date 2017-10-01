@@ -3,9 +3,9 @@
     - @campaigns.each do |campaign|
       .campaign
         = link_to campaign_path(campaign) do
-          =campaign.name
+          %span=campaign.name
           %img{:src => "/assets/campaign.jpg"}
         .description
-          %p= campaign.brewery.name.upcase
-          %p= campaign.short_description
-          %p= distance_of_time_in_words_to_now(campaign.deadline) + " left"
+          %p.brewery= campaign.brewery.name.upcase
+          -#%p= campaign.short_description
+          %p.deadline= distance_of_time_in_words_to_now(campaign.deadline) + " left"

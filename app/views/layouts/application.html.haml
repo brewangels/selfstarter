@@ -1,0 +1,17 @@
+!!!
+%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title= Settings.product_name
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    %link{:crossorigin => "anonymous", :href => "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css", :integrity => "sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M", :rel => "stylesheet"}
+  /[if lt IE 9 ] <body class="lt-ie9">
+  / [if (gt IE 9)|!(IE)]><!
+  %body
+    / <![endif]
+    = render 'preorder/header'
+    = yield
+    = render 'preorder/footer'
+

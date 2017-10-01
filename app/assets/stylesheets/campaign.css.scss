@@ -4,8 +4,8 @@
 
   .campaign {
     float: left;
-    width: 33%;
-    margin: 10px auto;
+    width: 220px;
+    margin: 10px 30px;
     font-size: 16px;
 
     a, a:hover {
@@ -13,17 +13,29 @@
       color: #323232;
     }
 
+    span {
+      white-space: nowrap;
+    }
+
     img {
       float: left;
       margin-right: 10px;
-      width: 220px;
+      width: 100%;
     }
 
     .description {
       margin-top: 30px;
 
       p {
-        margin-top: 22px;
+        margin-top: 10px;
+      }
+
+      p.brewery {
+        float: left;
+      }
+
+      p.deadline {
+        float: right;
       }
     }
   }
