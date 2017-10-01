@@ -20,7 +20,7 @@
           = number_with_delimiter Order.backers, :delimiter => ","
           %span= Settings.primary_stat
         %li.stats
-          = number_to_currency Order.revenue, :precision => 0
+          = humanized_money_with_symbol(@campaign.pledged_amount)
           %span
             of #{humanized_money_with_symbol(@campaign.goal)}
         %li#days.stats
@@ -28,15 +28,15 @@
           %span
             = distance_of_time_in_words_to_now(Settings.expiration_date).gsub(/\d/, "").gsub("about", "")
             left
-      - if Order.revenue.to_f < Order.goal.to_f
+      - if @campaign.pledged_amount < @campaign.goal
         #progress_bg.small
-          #progress{:style => "width: #{Order.percent}%;"}
+          #progress{:style => "width: #{@campaign.pledged_percentage}%;"}
       - else
         #progress_bg
           #progress
           #progress_text
-            = Order.percent
-            \% #{Settings.progress_text}
+            = @campaign.pledged_percentage
+            \% Funded
       .campaign_summary
         .block
           %p= @campaign.brewery.name
@@ -57,7 +57,7 @@
     %h3 Cheer with us
   %ul#other_points.wrapper.clearfix
     - @campaign.cheers.each_with_index do |cheer, i|
-      = link_to new_campaign_cheer_order_path(@campaign, cheer) do
+      = link_to new_campaign_cheer_cheer_order_path(@campaign, cheer) do
         %li{id: "section-#{i + 1}"}
           %h4= cheer.title
           %b= humanized_money_with_symbol(cheer.value)

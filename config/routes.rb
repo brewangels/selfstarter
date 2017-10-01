@@ -3,7 +3,7 @@ Selfstarter::Application.routes.draw do
 
   resources :campaigns do
     resources :cheers do
-      resources :orders, only: %i(new post)
+      resources :cheer_orders, only: %i(new create)
     end
   end
 
