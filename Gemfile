@@ -8,6 +8,7 @@ gem 'pg'
 gem 'puma'
 gem 'money-rails'
 gem 'haml-rails'
+gem 'untappd'
 
 group :production do
   gem 'pg'
@@ -22,6 +23,7 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 2.0'
   gem 'shoulda'
@@ -33,7 +35,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 # Kickstarter's awesome Amazon Flexible Payments gem
-gem 'amazon_flex_pay'
+#gem 'amazon_flex_pay'
 
 # Configuration File
 gem 'rails_config'
