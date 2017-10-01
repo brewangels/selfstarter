@@ -43,11 +43,7 @@ GEM
       railties (>= 3.2, < 5.2)
     erubis (2.7.0)
     execjs (2.0.2)
-    factory_girl (4.8.1)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.8.0)
-      factory_girl (~> 4.8.0)
-      railties (>= 3.0.0)
+    forgery (0.6.0)
     haml (4.0.7)
       tilt
     haml-rails (0.5.1)
@@ -169,7 +165,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   dotenv-rails
-  factory_girl_rails
+  forgery
   haml-rails
   jquery-rails
   jquery-ui-rails

@@ -23,8 +23,8 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'forgery'
   gem 'dotenv-rails', require: 'dotenv/rails-now'
-  gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 2.0'
   gem 'shoulda'
   gem 'pry-rails'
