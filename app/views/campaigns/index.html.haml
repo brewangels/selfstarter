@@ -8,4 +8,4 @@
         .description
           %p.brewery= campaign.brewery.name.upcase
           -#%p= campaign.short_description
-          %p.deadline= distance_of_time_in_words_to_now(campaign.deadline) + " left"
+          %p.deadline="⏱ " + distance_of_time_in_words_to_now(campaign.deadline) + " left"
