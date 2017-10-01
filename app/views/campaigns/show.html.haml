@@ -5,7 +5,8 @@
     #video
       - if Settings.use_video_placeholder
         #video_image
-          %img{:alt => "video_place_holder", :height => "385px", :src => "/assets/campaign.jpg", :width => "512px"}/
+          = image_tag(@campaign.image, :alt => "video_place_holder", :height => "385px", :width => "512px")
+          %img{}/
         #player.hidden{:style => "display: none;"}
           %object{:height => "385", :width => "512"}
             %param{:name => "movie", :value => "#{Settings.video_embed_url}?autohide=1=0=0=1"}/

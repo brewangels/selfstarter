@@ -31,6 +31,7 @@ c1 = Campaign.create!(
   deadline: 10.days.from_now,
   goal_cents: 100000,
   goal_currency: 'EUR',
+  image: "https://www.drinkpreneur.com/wp-content/uploads/2017/04/drinkpreneur_2016-01-26-1453821995-8643361-beermain.jpg"
 )
 c1.beers.create!(
   name: 'Goosebumps',
@@ -47,6 +48,7 @@ c2 = Campaign.create!(
   deadline: 15.days.from_now,
   goal_cents: 200000,
   goal_currency: 'EUR',
+  image: "https://cdn.pursuitist.com/wp-content/uploads/2013/03/stout-1440x960.jpg"
 )
 c2.beers.create!(
   name: "Fool's gold",
